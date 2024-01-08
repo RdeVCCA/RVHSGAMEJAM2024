@@ -1,13 +1,89 @@
 #appendGames{
-    background-color: lightgrey;
-    border-radius: 0.5rem;
-    width: 40%;
-    height: 50vh;
-    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#appendGame{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 42vw;
 }
 
 body{
-    width: 95%;
+    width: 90%;
     margin: auto;
 }
 
+#creator{
+    grid-row: 3;
+}
+
+#gameLogo{
+    width: 40vw;
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#gameLogo:hover{
+    border-radius: 0.8rem;
+    box-shadow: 0.8rem 0.8rem 0.8rem grey;
+    cursor: pointer;
+    width: 43vw;
+}
+
+#genre{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    margin: auto 15%;
+    text-align: right;
+    color: grey;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+#name{
+    grid-row: 2;
+    margin: 3% 0;
+    font-weight: bold;
+    flex-flow: row wrap;
+}
+
+@media only screen and (max-width: 600px) {
+    #appendGame{
+        grid-template-columns: 60% 40%;
+        width: 40vw;
+    }
+    
+    #gameLogo{
+        width: 9rem;
+        border-radius: 0.3rem;
+        box-shadow: 0.3rem 0.3rem 0.3rem grey;
+        margin: 0 0.5rem;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    #gameLogo:hover{
+        border-radius: 0.5rem;
+        box-shadow: 0.5rem 0.5rem 0.5rem grey;
+        width: 40vw;
+    }
+
+    body{
+        font-size: 0.6rem;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    #name{
+        margin: 0.5rem 0rem 0 0.3rem;
+    }
+
+    #creator{
+        margin: 0 0.3rem;
+    }
+  }

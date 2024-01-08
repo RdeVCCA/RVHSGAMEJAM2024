@@ -31,10 +31,12 @@
                 mysqli_stmt_close($stmt);
 
                 //echo out the four details
-                echo "<img class = 'gameLogo' src = $Thumbnail></div>";
-                echo "<span class = 'name'>$GameName</span>";
-                echo "<span class = 'creator'>$Author</span>";
-                echo "<span class = 'genre'>$Genre</span>";
+                echo "<div id = 'appendGame'>";
+                    echo "<a href = '/RVHSGAMEJAM2023/index.php?filename=game'><img id = 'gameLogo' class = 'grid' src = $Thumbnail></a>";
+                    echo "<span id = 'name' class = 'grid'>$GameName</span>";
+                    echo "<span id = 'creator' class = 'grid'>$Author</span>";
+                    echo "<span id = 'genre' class = 'grid'>$Genre</span>";
+                echo "</div>";
             }
 
             //inserting the details into value of html tags and then retrieving and inserting using js
