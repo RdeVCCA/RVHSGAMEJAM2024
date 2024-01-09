@@ -1,0 +1,67 @@
+.center{
+    text-align: center;
+}
+
+#Description{
+    text-align: left;
+    padding: 0 5rem;
+}
+
+#endArrow{
+    width: 5vw;
+    font-weight: bold;
+    margin: auto;
+}
+
+#endArrow:hover{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#gameButton{
+    border: 5px solid #B7D7AC;
+    border-radius: 0.5rem;
+    width: 20vw;
+    margin: auto;
+    padding: 1%;
+    color: #C6D7B0;
+    font-weight: bold;
+    background-color: rgba(196, 215, 172, 0.19);
+    text-align: center;
+}
+
+#gameButton:hover{
+    background-color: rgba(196, 215, 172, 0.38);
+    cursor: pointer;
+}
+
+#Header{
+    background-color: #191919;
+    padding: 0.1rem 0 0.7rem 0;
+}
+
+h2{
+    margin: 2rem 5rem;
+    color: #ACACAC;
+}
+
+img{
+    width: 80vw;
+    margin: 1rem auto;
+}
+
+#startArrow{
+    width: 5vw;
+    font-weight: bold;
+    margin: auto;
+}
+
+#startArrow:hover{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#T_V{
+    display: flex;
+    justify-content: center;
+}

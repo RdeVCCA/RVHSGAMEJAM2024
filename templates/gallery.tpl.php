@@ -1,5 +1,5 @@
         <link rel = "stylesheet" href = "static/css/gallery.css">
-        <script src = "static/js/library/gallery.js"></script>
+        <!-- <script src = "static/js/library/gallery.js"></script> -->
     </head>
     
     <body>    
@@ -20,19 +20,20 @@
             //finding the details of each of the gamejam and turning into an array
             foreach(range(0, $count) as $index){
                 //fetching of four details for each of the games
-                $sql_info = 'SELECT Thumbnail, GameName, Author, Genre FROM games WHERE Id = ?';
+                $sql_info = 'SELECT Id, Thumbnail, GameName, Author, Genre FROM games WHERE Id = ?';
+                $Id = "";
                 $Thumbnail = "";
                 $GameName = "";
                 $Author = "";
                 $Genre = "";
                 $stmt = prepared_query($conn, $sql_info, [$index], 's');
-                $stmt->bind_result($Thumbnail, $GameName, $Author, $Genre);
+                $stmt->bind_result($Id, $Thumbnail, $GameName, $Author, $Genre);
                 $stmt->fetch();
                 mysqli_stmt_close($stmt);
 
                 //echo out the four details
                 echo "<div id = 'appendGame'>";
-                    echo "<a href = '/RVHSGAMEJAM2023/index.php?filename=game'><img id = 'gameLogo' class = 'grid' src = $Thumbnail></a>";
+                    echo "<a href = '/RVHSGAMEJAM2023/index.php?filename=game&game=$Id'><img id = 'gameLogo' class = 'grid' src = $Thumbnail></a>";
                     echo "<span id = 'name' class = 'grid'>$GameName</span>";
                     echo "<span id = 'creator' class = 'grid'>$Author</span>";
                     echo "<span id = 'genre' class = 'grid'>$Genre</span>";
