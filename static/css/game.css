@@ -1,5 +1,29 @@
+#Aesthetic{
+    grid-row: 2;
+    grid-column: 2;
+}
+
 .center{
     text-align: center;
+}
+
+#Criteria1{
+    grid-row: 1;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 0.5rem;
+}
+
+#Criteria2{
+    grid-row: 2;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#Criteria3{
+    grid-row: 3;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #Description{
@@ -16,6 +40,11 @@
 #endArrow:hover{
     cursor: pointer;
     font-size: 2rem;
+}
+
+#Fun{
+    grid-row: 3;
+    grid-column: 2;
 }
 
 #gameButton{
@@ -41,13 +70,41 @@
 }
 
 h2{
-    margin: 2rem 5rem;
     color: #ACACAC;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 
 img{
     width: 80vw;
     margin: 1rem auto;
+}
+
+.margin{
+    margin: 2rem 5rem;
+}
+
+.ratings{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto auto;
+}
+
+.Star{
+    width: 2vw;
+    margin-top: 0.3rem;
+}
+
+.Star:hover{
+    cursor: pointer;
+}
+
+.Stars{
+    width: 3vw;
+}
+
+.Stars:hover{
+    cursor: pointer;
 }
 
 #startArrow{
@@ -64,4 +121,10 @@ img{
 #T_V{
     display: flex;
     justify-content: center;
+}
+
+#Theme{
+    grid-row: 1;
+    grid-column: 2;
+    margin-bottom: 0;
 }
