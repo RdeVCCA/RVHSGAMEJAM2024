@@ -4,6 +4,21 @@
     </head>
 
     <body>
+        <?php
+        function addComment($Comment){
+            //finding the number of comments to use to figure out the id
+            $sql = 'SELECT COUNT(*) FROM Comments';
+            $coun = ($conn ->query($sql))->fetch_all();
+            foreach($coun as $cou){
+                foreach($cou as $co){
+                    $count = $co; //array to string conversion
+                }
+            }
+
+            $sql = 'INSERT ?, ?, ? INTO Comments';
+            $stmt = prepared_query($conn, $sql, [$count, $userEmail, $comment]);
+        }
+        ?>
         <div class = "center">
             <?php 
             //retrieving information from database about game based on gameId transferred through get variable
@@ -75,4 +90,75 @@
                 </div>
             </div>
             <h2>Comments</h2>
+            <label for = "commentInput">Create a comment:</label>
+            <textarea placeholder = "Enter a comment" id = "commentInput" name = "commentInput"></textarea>
+            <button onclick = "addComment()">Add Comment</button>
+
+            <?php 
+            //require table called Comments with Id, pfp, username and comment
+
+            //find the number of comments
+            $sql = 'SELECT COUNT(*) FROM Comments';
+            $coun = ($conn ->query($sql))->fetch_all();
+            foreach($coun as $cou){
+                foreach($cou as $co){
+                    $count = $co; //array to string conversion
+                }
+            }
+            
+            //insert comments into page from database
+            if ($count != 0) {
+                foreach(range(0, $count - 1) as $index){
+                    $sql_info = 'SELECT pfp, username, comment FROM comments, users WHERE Id = ?';
+                
+                    $pfp = "";
+                    $username = "";
+                    $comment = "";
+
+                    $stmt = prepared_query($conn, $sql_info, [$index], 's');
+                    $stmt->bind_result($pfp, $username, $comment);
+                    $stmt->fetch();
+                    mysqli_stmt_close($stmt);
+
+                    echo "<div>";
+                        echo "<img src = '$pfp'>";
+                        echo "<div>$username</div>";
+                        echo "<div>$comment</div>";
+                    echo "</div>";
+                }
+            }
+            
+            
+            ?>
         </div>
+
+<!-- Database instructions
+comments(Id, UserEmail, comment, GameName)
+*Identify comment through unique id
+*Identify the person who gave the comment to retrieve pfp and username
+*Identify comment to append to page
+*Identify GameName to append to the correct game page
+
+games(Id, Thumbnail, GameName, Author, Genre, Descriptions, GameFiles, Trailer)
+*Identify game through unique id
+*Identify Thumbnail to append to page
+*Identify GameName to append to page
+*Identify Author to append to page
+*Identify Genre to append to papge
+*Identify Descriptions to append to page
+*Identify GameFiles for downloading when press 'play game'
+*Identify Trailer to append to page
+
+ratings(Id, userEmail, GameName, MainRating, ThemeRating, AestheticRating, FunRating
+*Identify ratings through unique id
+*Identify who gave the rating to save their rating on the page when they login
+*Identify GameName to know which gamepage to save the rating at
+*Identify MainRating to save the rating on page and calculate average rating
+*Identify ThemeRating to save the rating on page and calculate average theme rating
+*Identify AestheticRating to save the rating on page and calculate average aesthetic rating
+*Identify FunRating to save the rating on page and calculate average fun rating
+
+users(UserEmail, username, pfp)
+*Identify a user based on their email
+*Username is used for referring to a user on the page and to append to page
+*Identify pfp to append to comment section-->
