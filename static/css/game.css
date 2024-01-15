@@ -1,3 +1,8 @@
+a{
+    height: 3rem;
+    margin: auto;
+}
+
 #Aesthetic{
     grid-row: 2;
     grid-column: 2;
@@ -42,6 +47,7 @@
     width: 5vw;
     font-weight: bold;
     margin: auto;
+    color: lightgreen;
 }
 
 #endArrow:hover{
@@ -117,6 +123,8 @@ img{
     width: 5vw;
     font-weight: bold;
     margin: auto;
+    color: lightgreen;
+    text-decoration: none;
 }
 
 #startArrow:hover{

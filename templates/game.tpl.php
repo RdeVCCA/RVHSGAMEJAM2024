@@ -17,12 +17,23 @@
 
             $sql = 'INSERT ?, ?, ? INTO Comments';
             $stmt = prepared_query($conn, $sql, [$count, $userEmail, $comment]);
+            mysqli_stmt_close($stmt);
         }
+
+        $ratings = $_GET['R'];
+
         ?>
+        <script>
+            document.getElementById("Star" + $ratings[0]).img = "static/img/ColoredStar.png"
+            document.getElementById("Star" + $ratings[1] + 5).img = "static/img/ColoredStar.png"
+            document.getElementById("Star" + $ratings[2] + 10).img = "static/img/ColoredStar.png"
+            document.getElementById("Star" + $ratings[3] + 15).img = "static/img/ColoredStar.png"
+        </script>
         <div class = "center">
             <?php 
             //retrieving information from database about game based on gameId transferred through get variable
             $gameId = $_GET['game'];
+            
             $sql_info = 'SELECT Thumbnail, GameName, Author, Genre, Descriptions, GameFiles, Trailer FROM games WHERE Id = ?';
             
             $Thumbnail = "";
@@ -38,16 +49,37 @@
             $stmt->fetch();
             mysqli_stmt_close($stmt);
 
+            $Trailer = explode("[", $Trailer); //splitting different image or video links with [ to separate them into an arrays
+            
+            $PV_index = 0;
+            array_unshift($Trailer, $Thumbnail);
+
+            $PV_index = $_GET['PV']; //making the buttons change the PV_index to swtich image or video
+            if ($PV_index != 0){
+                $PV_indexl = $PV_index - 1;
+            } else{
+                $PV_indexl = $PV_index;
+            }
+            if ($PV_index < sizeof($Trailer) - 1){
+                $PV_indexg = $PV_index + 1;
+            } else{
+                $PV_indexg = $PV_index;
+            }
+
             echo "<div id = 'Header'>";
                 echo "<h1>$GameName</h1>";
                 echo "<div>$Genre</div>";
                 echo "<div>Created by $Author</div>";
-            echo "</div>";
+            echo "</div>"; 
             
             echo "<div id = 'T_V'>";
-                echo "<div id = 'startArrow'>&#x2190;</div>";
-                echo "<img src = '$Thumbnail'>";
-                echo "<div id = 'endArrow'> &#x2192;</div>";
+                echo "<a href = 'index.php?filename=game&game=$gameId&PV=$PV_indexl&R=0000'><div id = 'startArrow'>&#x2190;</div></a>";
+                if ($Trailer[$PV_index][0] == 'h'){ //if the display is a video
+                    echo "<iframe width='560' height='315' src = '$Trailer[$PV_index]'></iframe>"; //to prevent error in playing the video, for youtube video, find it, share, embed and copy link
+                } else{
+                    echo "<img src = '$Trailer[$PV_index]'>"; //if the display is an image
+                }
+                echo "<a href = 'index.php?filename=game&game=$gameId&PV=$PV_indexg&R=0000'><div id = 'endArrow'> &#x2192;</div></a>";
             echo "</div>"
             ?>
 
@@ -57,37 +89,41 @@
         echo "<div id = 'Description'>$Descriptions</div>";
         ?>
         <div class = "margin">
-            <h2>Rate</h2>
-            <img src = "static/img/star.png" class = "Stars" id = "Star1" onmouseover="highlightStar(1)" onmouseout="unhighlightStar(1)" onclick="calculateRatings(1), permanentHighlight(1)">
-            <img src = "static/img/star.png" class = "Stars" id = "Star2" onmouseover="highlightStar(2)" onmouseout="unhighlightStar(2)" onclick="calculateRatings(2), permanentHighlight(2)">
-            <img src = "static/img/star.png" class = "Stars" id = "Star3" onmouseover="highlightStar(3)" onmouseout="unhighlightStar(3)" onclick="calculateRatings(3), permanentHighlight(3)">
-            <img src = "static/img/star.png" class = "Stars" id = "Star4" onmouseover="highlightStar(4)" onmouseout="unhighlightStar(4)" onclick="calculateRatings(4), permanentHighlight(4)">
-            <img src = "static/img/star.png" class = "Stars" id = "Star5" onmouseover="highlightStar(5)" onmouseout="unhighlightStar(5)" onclick="calculateRatings(5), permanentHighlight(5)">
-            <div class = "ratings">
-                <div id = "Criteria1">Relatedness to Theme</div>
-                <div id = "Theme">
-                    <img src = "static/img/star.png" class = "Star" id = "Star6" onmouseover="highlightStar(6)" onmouseout="unhighlightStar(6)" onclick="calculateRatings(1), permanentHighlight(6)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star7" onmouseover="highlightStar(7)" onmouseout="unhighlightStar(7)" onclick="calculateRatings(2), permanentHighlight(7)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star8" onmouseover="highlightStar(8)" onmouseout="unhighlightStar(8)" onclick="calculateRatings(3), permanentHighlight(8)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star9" onmouseover="highlightStar(9)" onmouseout="unhighlightStar(9)" onclick="calculateRatings(4), permanentHighlight(9)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star10" onmouseover="highlightStar(10)" onmouseout="unhighlightStar(10)" onclick="calculateRatings(5), permanentHighlight(10)">
-                </div>
-                <div id = "Criteria2">Aesthetic</div>
-                <div id = "Aesthetic">
-                    <img src = "static/img/star.png" class = "Star" id = "Star11" onmouseover="highlightStar(11)" onmouseout="unhighlightStar(11)" onclick="calculateRatings(1), permanentHighlight(11)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star12" onmouseover="highlightStar(12)" onmouseout="unhighlightStar(12)" onclick="calculateRatings(2), permanentHighlight(12)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star13" onmouseover="highlightStar(13)" onmouseout="unhighlightStar(13)" onclick="calculateRatings(3), permanentHighlight(13)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star14" onmouseover="highlightStar(14)" onmouseout="unhighlightStar(14)" onclick="calculateRatings(4), permanentHighlight(14)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star15" onmouseover="highlightStar(15)" onmouseout="unhighlightStar(15)" onclick="calculateRatings(5), permanentHighlight(15)">
-                </div>
-                <div id = "Criteria3">Fun</div>
-                <div id = "Fun">
-                    <img src = "static/img/star.png" class = "Star" id = "Star16" onmouseover="highlightStar(16)" onmouseout="unhighlightStar(16)" onclick="calculateRatings(1), permanentHighlight(16)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star17" onmouseover="highlightStar(17)" onmouseout="unhighlightStar(17)" onclick="calculateRatings(2), permanentHighlight(17)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star18" onmouseover="highlightStar(18)" onmouseout="unhighlightStar(18)" onclick="calculateRatings(3), permanentHighlight(18)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star19" onmouseover="highlightStar(19)" onmouseout="unhighlightStar(19)" onclick="calculateRatings(4), permanentHighlight(19)">
-                    <img src = "static/img/star.png" class = "Star" id = "Star20" onmouseover="highlightStar(20)" onmouseout="unhighlightStar(20)" onclick="calculateRatings(5), permanentHighlight(20)">
-                </div>
+            <form method = 'GET'>
+                <h2>Rate</h2>
+                <img src = "static/img/star.png" class = "Stars" id = "Star1" onmouseover="highlightStar(1)" onmouseout="unhighlightStar(1)" onclick="calculateRatings(1), permanentHighlight(1)">
+                <img src = "static/img/star.png" class = "Stars" id = "Star2" onmouseover="highlightStar(2)" onmouseout="unhighlightStar(2)" onclick="calculateRatings(2), permanentHighlight(2)">
+                <img src = "static/img/star.png" class = "Stars" id = "Star3" onmouseover="highlightStar(3)" onmouseout="unhighlightStar(3)" onclick="calculateRatings(3), permanentHighlight(3)">
+                <img src = "static/img/star.png" class = "Stars" id = "Star4" onmouseover="highlightStar(4)" onmouseout="unhighlightStar(4)" onclick="calculateRatings(4), permanentHighlight(4)">
+                <img src = "static/img/star.png" class = "Stars" id = "Star5" onmouseover="highlightStar(5)" onmouseout="unhighlightStar(5)" onclick="calculateRatings(5), permanentHighlight(5)">
+                <div class = "ratings">
+                    <div id = "Criteria1">Relatedness to Theme</div>
+                    <div id = "Theme">
+                        <img src = "static/img/star.png" class = "Star" id = "Star6" onmouseover="highlightStar(6)" onmouseout="unhighlightStar(6)" onclick="calculateRatings(1), permanentHighlight(6)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star7" onmouseover="highlightStar(7)" onmouseout="unhighlightStar(7)" onclick="calculateRatings(2), permanentHighlight(7)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star8" onmouseover="highlightStar(8)" onmouseout="unhighlightStar(8)" onclick="calculateRatings(3), permanentHighlight(8)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star9" onmouseover="highlightStar(9)" onmouseout="unhighlightStar(9)" onclick="calculateRatings(4), permanentHighlight(9)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star10" onmouseover="highlightStar(10)" onmouseout="unhighlightStar(10)" onclick="calculateRatings(5), permanentHighlight(10)">
+                    </div>
+                    <div id = "Criteria2">Aesthetic</div>
+                    <div id = "Aesthetic">
+                        <img src = "static/img/star.png" class = "Star" id = "Star11" onmouseover="highlightStar(11)" onmouseout="unhighlightStar(11)" onclick="calculateRatings(1), permanentHighlight(11)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star12" onmouseover="highlightStar(12)" onmouseout="unhighlightStar(12)" onclick="calculateRatings(2), permanentHighlight(12)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star13" onmouseover="highlightStar(13)" onmouseout="unhighlightStar(13)" onclick="calculateRatings(3), permanentHighlight(13)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star14" onmouseover="highlightStar(14)" onmouseout="unhighlightStar(14)" onclick="calculateRatings(4), permanentHighlight(14)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star15" onmouseover="highlightStar(15)" onmouseout="unhighlightStar(15)" onclick="calculateRatings(5), permanentHighlight(15)">
+                    </div>
+                    <div id = "Criteria3">Fun</div>
+                    <div id = "Fun">
+                        <img src = "static/img/star.png" class = "Star" id = "Star16" onmouseover="highlightStar(16)" onmouseout="unhighlightStar(16)" onclick="calculateRatings(1), permanentHighlight(16)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star17" onmouseover="highlightStar(17)" onmouseout="unhighlightStar(17)" onclick="calculateRatings(2), permanentHighlight(17)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star18" onmouseover="highlightStar(18)" onmouseout="unhighlightStar(18)" onclick="calculateRatings(3), permanentHighlight(18)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star19" onmouseover="highlightStar(19)" onmouseout="unhighlightStar(19)" onclick="calculateRatings(4), permanentHighlight(19)">
+                        <img src = "static/img/star.png" class = "Star" id = "Star20" onmouseover="highlightStar(20)" onmouseout="unhighlightStar(20)" onclick="calculateRatings(5), permanentHighlight(20)">
+                    </div>
+                    <input type = 'hidden' id = 'currentRatings' name = 'R'>
+                    <button type = "submit">Submit ratings</button>
+                </form>
             </div>
             <h2>Comments</h2>
             <label for = "commentInput">Create a comment:</label>
@@ -128,7 +164,6 @@
                 }
             }
             
-            
             ?>
         </div>
 
@@ -147,7 +182,7 @@ games(Id, Thumbnail, GameName, Author, Genre, Descriptions, GameFiles, Trailer)
 *Identify Genre to append to papge
 *Identify Descriptions to append to page
 *Identify GameFiles for downloading when press 'play game'
-*Identify Trailer to append to page
+*Includes Trailer and pictures of gameplay to append on game page
 
 ratings(Id, userEmail, GameName, MainRating, ThemeRating, AestheticRating, FunRating
 *Identify ratings through unique id

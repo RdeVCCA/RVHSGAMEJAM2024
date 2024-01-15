@@ -33,7 +33,7 @@
 
                 //echo out the four details
                 echo "<div id = 'appendGame'>";
-                    echo "<a href = '/RVHSGAMEJAM2023/index.php?filename=game&game=$Id'><img id = 'gameLogo' class = 'grid' src = $Thumbnail></a>";
+                    echo "<a href = '/RVHSGAMEJAM2023/index.php?filename=game&game=$Id&PV=0&R=0000'><img id = 'gameLogo' class = 'grid' src = $Thumbnail></a>";
                     echo "<span id = 'name' class = 'grid'>$GameName</span>";
                     echo "<span id = 'creator' class = 'grid'>$Author</span>";
                     echo "<span id = 'genre' class = 'grid'>$Genre</span>";
