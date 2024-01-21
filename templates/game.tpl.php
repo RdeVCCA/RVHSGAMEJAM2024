@@ -5,6 +5,7 @@
 
     <body>
         <?php
+        error_reporting(E_ERROR | E_PARSE);
         function addComment($Comment){
             //finding the number of comments to use to figure out the id
             $sql = 'SELECT COUNT(*) FROM Comments';
@@ -164,7 +165,7 @@
             echo "</div>"
             ?>
 
-            <div id = "gameButton">Play Game</div>
+            <a><div id = "gameButton">Play Game</div></a>
         </div>
         <?php
         echo "<div id = 'Description'>$Descriptions</div>";

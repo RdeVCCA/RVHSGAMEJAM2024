@@ -64,7 +64,7 @@ a{
     border: 5px solid #B7D7AC;
     border-radius: 0.5rem;
     width: 20vw;
-    margin: auto;
+    margin: 1rem auto;
     padding: 1%;
     color: #C6D7B0;
     font-weight: bold;
@@ -158,4 +158,56 @@ textarea{
     grid-row: 1;
     grid-column: 2;
     margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #startArrow{
+        width: 3vw;
+        margin-left: 5vw;
+    }
+
+    #endArrow{
+        width: 3vw;
+        margin-right: 5vw;
+    }
+
+    iframe{
+        width: 60vw;
+    }
+
+    img{
+        width: 60vw;
+    }
+
+    .ratings{
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .Stars{
+        width: 8vw;
+    }
+    
+    .Star{
+        width: 5vw;
+    }
+
+    .submit{
+        border-radius: 0.5rem;
+    }
+
+    h2{
+        margin-bottom: 0;
+    }
+
+    #commentInput{
+        width: 70vw;
+    }
+
+    #gameButton{
+        width: 50vw;
+        height: 2.8rem;
+        font-size: 2rem;
+        padding: auto;
+    }
 }
