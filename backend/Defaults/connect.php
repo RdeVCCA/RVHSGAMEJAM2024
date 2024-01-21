@@ -13,6 +13,9 @@ $conn = mysqli_connect($servername, $username, $password, $db_name);
 function prepared_query($mysqli, $sql, $params, $types = "")
 {
     $stmt = $mysqli->prepare($sql);
+    if (!$stmt) {
+        die("Error in SQL query: " . $mysqli->error);
+    }
     $stmt->bind_param($types, ...$params);
     $stmt->execute();
     return $stmt;

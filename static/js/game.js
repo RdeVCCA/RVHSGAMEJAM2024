@@ -19,15 +19,15 @@ function highlightStar(star_number){
     } 
 }
 
-//change color of star when not hover
 var highlighted1 = false
 var highlighted2 = false
 var highlighted3 = false
-var highlighted4 = false 
-let permanentNumber1 = 0
-let permanentNumber2 = 0
-let permanentNumber3 = 0
-let permanentNumber4 = 0
+var highlighted4 = false
+var permanentNumber1 = 0
+var permanentNumber2 = 0
+var permanentNumber3 = 0
+var permanentNumber4 = 0
+//change color of star when not hover
 
 function unhighlightStar(star_number){
     if (star_number > 0 && star_number < 6){
@@ -132,4 +132,5 @@ function calculateRatings(ratings){
     console.log(permanentNumber3)
     console.log(permanentNumber4)
     document.getElementById('currentRatings').value = String(permanentNumber1) + String(permanentNumber2 - 5) + String(permanentNumber3 - 10) + String(permanentNumber4 - 15)
+    console.log(document.getElementById('currentRatings').value)
 }

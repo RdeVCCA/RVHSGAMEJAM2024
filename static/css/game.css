@@ -132,6 +132,23 @@ img{
     font-size: 2rem;
 }
 
+.submit{
+    margin: 1rem 0;
+    width: 15rem;
+    height: 2.5rem;
+    background: #77bd7a;
+    border-radius: 0.3em;
+}
+
+.submit:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px lightgrey;
+}
+
+textarea{
+    resize: none;
+}
+
 #T_V{
     display: flex;
     justify-content: center;

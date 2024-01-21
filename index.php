@@ -11,6 +11,7 @@ header('Content-Security-Policy: worker-src https:');
 // include('templates/defaults/end.tpl.php');
 
 require_once "backend/Defaults/connect.php";
+require_once "backend/Game/ratings.php";
 
 //retrieving filename from url
 if (isset($_GET['filename'])){
