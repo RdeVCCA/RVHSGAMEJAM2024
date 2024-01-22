@@ -257,8 +257,8 @@
 
                 if ($gameName == $Gamename){
                     echo "<div>";
-                        echo "<img src = '$pfp'>";
-                        echo "<div>$username</div>";
+                        echo "<img class = 'inline' id = 'pfp' src = '$pfp'>";
+                        echo "<div class = 'inline'>$username</div>";
                         echo "<div>$comment</div>";
                     echo "</div>";
                 }

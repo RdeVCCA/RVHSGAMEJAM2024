@@ -93,8 +93,18 @@ img{
     margin: 1rem auto;
 }
 
+.inline{
+    display: inline;
+}
+
 .margin{
     margin: 2rem 5rem;
+}
+
+#pfp{
+    height: 2em;
+    width: auto;
+    margin-bottom: 0;
 }
 
 .ratings{
