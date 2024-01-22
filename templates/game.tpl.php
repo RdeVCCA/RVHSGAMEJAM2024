@@ -48,6 +48,15 @@
         $stmt->fetch();
         mysqli_stmt_close($stmt);
 
+        $sql = 'SELECT GameFiles FROM games WHERE GameName = ?';
+                    
+        $GameFiles = '';
+
+        $stmt = prepared_query($conn, $sql, [$gameName], 's');
+        $stmt->bind_result($GameFiles);
+        $stmt->fetch();
+        mysqli_stmt_close($stmt);
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ratings = $_POST['R'];
             $comments = $_POST['comment'];
@@ -165,7 +174,7 @@
             echo "</div>"
             ?>
 
-            <a><div id = "gameButton">Play Game</div></a>
+            <a href = "<?php echo $GameFiles;?>"><div id = "gameButton">Play Game</div></a>
         </div>
         <?php
         echo "<div id = 'Description'>$Descriptions</div>";

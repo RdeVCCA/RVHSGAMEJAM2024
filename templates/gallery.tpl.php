@@ -18,7 +18,7 @@
             }
 
             //finding the details of each of the gamejam and turning into an array
-            foreach(range(0, $count) as $index){
+            foreach(range(0, $count - 1) as $index){
                 //fetching of four details for each of the games
                 $sql_info = 'SELECT Id, Thumbnail, GameName, Author, Genre FROM games WHERE Id = ?';
                 $Id = "";
