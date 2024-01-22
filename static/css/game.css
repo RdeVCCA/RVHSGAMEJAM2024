@@ -212,4 +212,8 @@ textarea{
         font-size: 2rem;
         padding: auto;
     }
+
+    .margin{
+        margin: 3rem ;
+    }
 }
