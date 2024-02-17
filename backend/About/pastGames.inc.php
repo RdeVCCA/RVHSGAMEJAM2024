@@ -1,5 +1,5 @@
 <?php
-require "backend/Defaults/connect.php";
+require_once "backend/Defaults/connect.php";
 function convertToCamelCase($string) {
     // Replace any non-letter and non-digit character with a space
     $string = preg_replace('/[^a-zA-Z0-9]/', ' ', $string);

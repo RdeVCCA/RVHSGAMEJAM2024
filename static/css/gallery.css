@@ -1,11 +1,12 @@
 #appendGames{
     display: grid;
     grid-template-columns: auto auto;
+    gap: 1.5em
 }
 
 #appendGame{
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
     width: 42vw;
 }
 
@@ -17,20 +18,22 @@ body{
 #creator{
     grid-row: 3;
 }
-
-#gameLogo{
-    width: 40vw;
-    border-radius: 0.5rem;
-    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+.game-logo-container{
     grid-column-start: 1;
     grid-column-end: 4;
+}
+#gameLogo{
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 0.5rem;
+    transition: scale 1s, box-shadow 0.5s;
 }
 
 #gameLogo:hover{
     border-radius: 0.8rem;
-    box-shadow: 0.8rem 0.8rem 0.8rem grey;
+    box-shadow: 0rem 0rem 1rem rgba(255, 255, 255, 0.712);
     cursor: pointer;
-    width: 43vw;
+    scale: 1.1;
 }
 
 #genre{
@@ -40,7 +43,7 @@ body{
     text-align: right;
     color: grey;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 1em;
 }
 
 #name{
@@ -56,20 +59,7 @@ body{
         width: 40vw;
     }
     
-    #gameLogo{
-        width: 12rem;
-        border-radius: 0.3rem;
-        box-shadow: 0.3rem 0.3rem 0.3rem grey;
-        margin: 0 0.5rem;
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
 
-    #gameLogo:hover{
-        border-radius: 0.5rem;
-        box-shadow: 0.5rem 0.5rem 0.5rem grey;
-        width: 40vw;
-    }
 
     body{
         font-size: 0.6rem;

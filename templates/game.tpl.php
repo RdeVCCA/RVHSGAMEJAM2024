@@ -168,7 +168,7 @@
                 if ($Trailer[$PV_index][0] == 'h'){ //if the display is a video
                     echo "<iframe width='560' height='315' src = '$Trailer[$PV_index]'></iframe>"; //to prevent error in playing the video, for youtube video, find it, share, embed and copy link
                 } else{
-                    echo "<img src = '$Trailer[$PV_index]'>"; //if the display is an image
+                    echo "<img class = 'thumbnail' src = '$Trailer[$PV_index]'>"; //if the display is an image
                 }
                 echo "<a href = 'index.php?filename=game&game=$gameId&PV=$PV_indexg'><div id = 'endArrow'> &#x2192;</div></a>";
             echo "</div>"

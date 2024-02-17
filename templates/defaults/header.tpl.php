@@ -15,6 +15,7 @@
         <link rel = "stylesheet" type ="text/css" href = "static/css/image.css?<?php echo time(); ?>">
         <link rel = "stylesheet" type ="text/css" href = "static/css/shared.css?<?php echo time(); ?>">
         <link rel = "stylesheet" type ="text/css" href = "static/css/mobile.css?<?php echo time(); ?>">
+
         <!-- <link rel="stylesheet" href="static/css/share.css?<?php echo time(); ?>"> -->
 
         <!-- <meta name="theme-color" content="#00222b" /> -->
