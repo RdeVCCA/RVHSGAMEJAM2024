@@ -1,0 +1,232 @@
+a{
+    height: 3rem;
+    margin: auto;
+}
+
+#Aesthetic{
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.center{
+    text-align: center;
+}
+
+#commentInput{
+    width: 30rem;
+    height: 3rem;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+#Criteria1{
+    grid-row: 1;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 0.5rem;
+}
+
+#Criteria2{
+    grid-row: 2;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#Criteria3{
+    grid-row: 3;
+    grid-column: 1;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#Description{
+    text-align: left;
+    padding: 0 5rem;
+}
+
+#endArrow{
+    width: 5vw;
+    font-weight: bold;
+    margin: auto;
+    color: lightgreen;
+}
+
+#endArrow:hover{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+#Fun{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#gameButton{
+    border: 5px solid #B7D7AC;
+    border-radius: 0.5rem;
+    width: 20vw;
+    margin: 1rem auto;
+    padding: 1%;
+    color: #C6D7B0;
+    font-weight: bold;
+    background-color: rgba(196, 215, 172, 0.19);
+    text-align: center;
+}
+
+#gameButton:hover{
+    background-color: rgba(196, 215, 172, 0.38);
+    cursor: pointer;
+}
+
+#Header{
+    background-color: #191919;
+    padding: 0.1rem 0 0.7rem 0;
+}
+
+h2{
+    color: #ACACAC;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.thumbnail{
+    max-width: 80vw;
+    max-height: 50vh;
+    margin: 1rem auto;
+}
+
+.inline{
+    display: inline;
+}
+
+.margin{
+    margin: 2rem 5rem;
+}
+
+#pfp{
+    height: 2em;
+    width: auto;
+    margin-bottom: 0;
+}
+
+.ratings{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto auto auto;
+    gap:0.5em;
+    margin-top: 1em;
+}
+
+.Star{
+    width: 2vw;
+}
+
+.Star:hover{
+    cursor: pointer;
+}
+
+.Stars{
+    width: 3vw;
+}
+
+.Stars:hover{
+    cursor: pointer;
+}
+
+#startArrow{
+    width: 5vw;
+    font-weight: bold;
+    margin: auto;
+    color: lightgreen;
+    text-decoration: none;
+}
+
+#startArrow:hover{
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.submit{
+    margin: 1rem 0;
+    width: 15rem;
+    height: 2.5rem;
+    background: #599e6c;
+    border-radius: 0.4rem;
+    color: white;
+    font-weight: bold;
+}
+
+.submit:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px 5px lightgrey;
+}
+
+textarea{
+    resize: none;
+}
+
+#T_V{
+    display: flex;
+    justify-content: center;
+}
+
+#Theme{
+    grid-row: 1;
+    grid-column: 2;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #startArrow{
+        width: 3vw;
+        margin-left: 5vw;
+    }
+
+    #endArrow{
+        width: 3vw;
+        margin-right: 5vw;
+    }
+
+    iframe{
+        width: 60vw;
+    }
+
+    img{
+        width: 60vw;
+    }
+
+    .ratings{
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .Stars{
+        width: 8vw;
+    }
+    
+    .Star{
+        width: 5vw;
+    }
+
+    .submit{
+        border-radius: 0.5rem;
+    }
+
+    h2{
+        margin-bottom: 0;
+    }
+
+    #commentInput{
+        width: 70vw;
+    }
+
+    #gameButton{
+        width: 50vw;
+        height: 2.8rem;
+        font-size: 2rem;
+        padding: auto;
+    }
+
+    .margin{
+        margin: 3rem ;
+    }
+}

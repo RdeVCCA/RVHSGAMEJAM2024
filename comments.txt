@@ -1,0 +1,18 @@
+Overall well done, A few things to note:
+CSS:
+1. Don't use id for elements you will have multiple of, an id should be unique. If you will have multiple elements of the same style, use classes instead
+- In the gallery page, you have appendGame, gameLogo, etc as id. These should be classes instead.
+2. Use em, not % for fontsizes.
+3. You used :hover to change the style of an element when it's hovered, which is good, but notice that by changing width, you adjust the height and thus position of all the other elements on the page
+- To fix this, instead of changing width, you can use transform: scale(); This will scale the image without affecting it's position in the page.
+4. It seems you use width: 40vw for the logos. Using width:100% is better since the items are in a grid format already. 
+5. Try not to use element selectors like img{}, since for example if i add a rdev logo to the page it would be affected by your selector. Always try to use classes first
+
+PHP:
+1. What you did to pass the data from php to HTML wasn't wrong, but could be better.
+
+
+Misc:
+1. You made the thumbnail display for the game page depend on the url link (AKA a GET request). Though works, its a little inconvenient to click to the next thumbnail, and will cause some lag.
+- A better way to do it was to use javascript to replace the thumbnail image
+

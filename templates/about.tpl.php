@@ -1,3 +1,4 @@
+<?php include "templates/defaults/login.tpl.php"?>
 <section class="about">
     <h2 class="header-section">About</h2>
     <div class="container-sub">
