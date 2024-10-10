@@ -17,15 +17,14 @@ function updateGameDetails(gameId) {
     const title = gameDetails.querySelector('.game-title');
     const visitButton = gameDetails.querySelector('.game-visit');
     const game = pastGames[selectedYear.innerHTML][gameId];
-    console.log(game);
+
     description.innerHTML = game.description;
-    if (game.video){
+    if (game.video) {
         video.querySelector("source").src = game.video;
         video.load();
         video.style.display = 'block';
         img.style.display = 'none';
-    }
-    else{
+    } else {
         img.src = game.thumbnail;
         img.style.display = 'block';
         video.style.display = 'none';
@@ -65,7 +64,6 @@ function loadGames(year){
     }
 }
 for (let i = 0; i < selectYear.length; i++) {
-    
     selectYear[i].addEventListener('click', function() {
         selectedYear.removeAttribute('data-selected');
         this.setAttribute('data-selected', 'true');

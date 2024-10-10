@@ -8,7 +8,7 @@
         <span class="second">River Valley High School</span>
         <span class="third">Gamejam</span>
     </h1>
-    <a href="https://forms.gle/YiPxeeYy15nnUFm7A" class="center-h center-v signup-button">
+    <a href="https://forms.gle/Va3WKpSuwXPjFjSS8" class="fourth center-h center-v signup-button">
         <span>Sign Up</span>
     </a>
 </section>

@@ -20,9 +20,9 @@
             <div class="container-text fade-left paused">
                 <p class="header-content text-align-left">
                     Join the RVHS Gamejam! This holiday-long event by <b>RdeV</b> showcases
-                    student creativity in <b class = "white">game design</b>.
+                    student creativity in <b class="white">game design</b>.
                     <b>Learn or enhance</b> your programming skills with your friends
-                    through an exciting <b class = "white">game jam</b>!
+                    through an exciting <b class="white">game jam</b>!
                 </p>
 
             </div>

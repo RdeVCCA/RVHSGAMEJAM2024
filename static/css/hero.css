@@ -29,7 +29,7 @@
     filter:grayscale(90%);
 }
 
-.hero h1>span{
+.hero .first, .hero .second, .hero .third, .hero .fourth{
     --amt:-0.5em;
     animation: fadeY 1s ease-in-out backwards;
     display: block;
@@ -37,10 +37,12 @@
 
 .second{
     animation-delay: 0.5s !important;
-
 }
 
 .third{
     animation-delay: 1s !important;
 }
 
+.fourth{
+    animation-delay: 1.5s !important;
+}

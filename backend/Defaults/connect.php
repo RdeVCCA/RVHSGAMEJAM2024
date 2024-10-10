@@ -1,15 +1,6 @@
 <?php
-
-// WHAT??????????
-define("salt", "0no3dbBWxbppqt7bcE8fCaM7IKM0nnLI");
-define("SECRET_KEY", "q3Mfg4TFEoXgVwoPEiYoz3Y0qm4iYYxF");
-
-// $servername = "127.0.0.1";
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "2023gamejam";
-$conn = mysqli_connect($servername, $username, $password, $db_name);
+include '../../private/rvhsgamejam_secrets.inc.php';
+$conn = mysqli_connect(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 function prepared_query($mysqli, $sql, $params, $types = "")
 {
