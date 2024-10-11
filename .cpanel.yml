@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ylrdxapi/domains/rvhsgamejam.x10.mx/
+    - /usr/bin/find . -maxdepth 1 -type f -exec /bin/cp -r {} $DEPLOYPATH \;
+    - /usr/bin/find . -maxdepth 1 -type d ! -name '.*' -exec /bin/cp -r {} $DEPLOYPATH \;
