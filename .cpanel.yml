@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export RSYNCPATH="$(which rsync)"
+    - export RSYNCPATH="$(/bin/which rsync)"
     - export DEPLOYPATH=/home/ylrdxapi/domains/rvhsgamejam.x10.mx/public_html
     - $RSYNCPATH -rt . $DEPLOYPATH
     # - /bin/cp index.php $DEPLOYPATH
