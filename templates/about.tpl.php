@@ -6,10 +6,10 @@
                 <?php
                 foreach ($pastGames as $year => $games) {
                     foreach ($games as $i => $game) {
-                        if (!isset($game['thumbnail'])) {
+                        if (!isset($game['logo'])) {
                             continue;
                         }
-                        $thumbnail = $game['thumbnail'];
+                        $thumbnail = $game['logo'];
                     ?>
                     <div class="carousel-item">
                         <img class="carousel-image" src="<?php echo $thumbnail ?>">
@@ -34,7 +34,7 @@
 
     <div class="container-sub center-items">
         <video class="center-h fade-bottom paused" id="about-video" controls>
-            <source src="static/videos/gamejamvid.mp4" type="video/mp4">
+            <source src="static/videos/gamejamvid.webm" type="video/webm">
         </video>
         <p class="header-content fade-top paused text-align-left">
             What’s a game jam? A game jam is a <b class="white">competition</b>

@@ -1,7 +1,7 @@
 <section class = "hero">
     <video class="center-h" id="hero-video" autoplay loop muted>
         <!-- having a massive video to send to the user might not be the best idea idk -->
-        <source src="static/videos/gamejamvid.mp4" type="video/mp4">
+        <source src="static/videos/gamejamvid.webm" type="video/webm">
     </video>
     <h1>
         <span class="first">2024</span>
