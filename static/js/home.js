@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.remove("paused");
+        entry.target.play();
+      } else {
+        entry.target.pause();
       }
     });
-  }, { threshold: 0.5 }); // Adjust the threshold as needed
+  }, { threshold: 0.1 }); // Adjust the threshold as needed
 
   const observeElements = (elements) => {
     elements.forEach(el => {
@@ -13,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
   
-  const paused = document.querySelectorAll('.paused');
-  observeElements(paused);
+  const heroVideo = document.querySelectorAll("#hero-video");
+  observeElements(heroVideo);
 });
   
 
