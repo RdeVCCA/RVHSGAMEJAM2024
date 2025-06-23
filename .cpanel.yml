@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/ylrdxapi/domains/rvhsgamejam.x10.mx/public_html
     - /bin/cp index.php $DEPLOYPATH
-    - /bin/cp -r static templates backend $DEPLOYPATH
+    - /bin/cp -r static templates backend includes $DEPLOYPATH
